@@ -179,7 +179,7 @@ export default class TransactionScreen extends React.Component{
 
     initiateBookReturn=async()=>{
         //add a transaction
-        db.collection("transaction").add({
+        db.collection("transactions").add({
             'studentId':this.state.scannedStudentId,
             'bookId':this.state.scannedBookId,
             'date':firebase.firestore.Timestamp.now().toDate(),
@@ -250,10 +250,7 @@ export default class TransactionScreen extends React.Component{
                 <TouchableOpacity style={styles.submitButton} 
                 onPress={ async()=>{
                     var transactionMessage=this.handleTransaction();
-                  /*  this.setState({
-                        scannedBookId:'',
-                        scannedStudentId:''
-                    })*/
+               
                 }}>
                     <Text style={styles.submitButtonText}>Submit</Text>
                 </TouchableOpacity>
@@ -277,7 +274,7 @@ const styles=StyleSheet.create({
     scanButton: {
         backgroundColor:"#2196F3",
         padding:10,
-        margin:10
+        height:40
     },
     buttonText: {
         fontSize:20
